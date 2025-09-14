@@ -9,10 +9,128 @@ The @apply directive should not be used with the group utility class.
 
 @layer base {
   :root {
-   
+    --primary: 220 90% 56%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 9% 46%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 220 14% 96%;
+    --accent-foreground: 220 9% 11%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 220 90% 56%;
+    --background: 0 0% 100%;
+    --foreground: 220 9% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 9% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 9% 11%;
+    --radius: 0.5rem;
+    
+    /* Tech Theme Colors */
+    --tech-neon-blue: 200 100% 50%;
+    --tech-neon-green: 120 100% 50%;
+    --tech-neon-purple: 280 100% 70%;
+    --tech-neon-pink: 320 100% 70%;
+    --tech-dark-bg: 220 26% 8%;
+    --tech-dark-surface: 220 20% 12%;
+    --tech-code-bg: 220 30% 6%;
+    --tech-gradient-primary: linear-gradient(135deg, hsl(var(--tech-neon-blue)), hsl(var(--tech-neon-purple)));
+    --tech-gradient-secondary: linear-gradient(135deg, hsl(var(--tech-neon-green)), hsl(var(--tech-neon-pink)));
   }
 
   .dark {
+    --background: 220 26% 8%;
+    --foreground: 0 0% 95%;
+    --card: 220 20% 12%;
+    --card-foreground: 0 0% 95%;
+    --popover: 220 20% 12%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 200 100% 50%;
+    --primary-foreground: 220 26% 8%;
+    --secondary: 220 20% 16%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 220 20% 16%;
+    --muted-foreground: 240 5% 64%;
+    --accent: 220 20% 16%;
+    --accent-foreground: 0 0% 95%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 85% 97%;
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 200 100% 50%;
+  }
+}
 
+/* Tech-specific utility classes */
+@layer utilities {
+  .text-neon-blue {
+    color: hsl(var(--tech-neon-blue));
+    text-shadow: 0 0 10px hsl(var(--tech-neon-blue) / 0.5);
+  }
+  
+  .text-neon-green {
+    color: hsl(var(--tech-neon-green));
+    text-shadow: 0 0 10px hsl(var(--tech-neon-green) / 0.5);
+  }
+  
+  .text-neon-purple {
+    color: hsl(var(--tech-neon-purple));
+    text-shadow: 0 0 10px hsl(var(--tech-neon-purple) / 0.5);
+  }
+  
+  .bg-tech-dark {
+    background-color: hsl(var(--tech-dark-bg));
+  }
+  
+  .bg-tech-surface {
+    background-color: hsl(var(--tech-dark-surface));
+  }
+  
+  .bg-code {
+    background-color: hsl(var(--tech-code-bg));
+  }
+  
+  .gradient-primary {
+    background: var(--tech-gradient-primary);
+  }
+  
+  .gradient-secondary {
+    background: var(--tech-gradient-secondary);
+  }
+  
+  .glow-blue {
+    box-shadow: 0 0 20px hsl(var(--tech-neon-blue) / 0.3);
+  }
+  
+  .glow-green {
+    box-shadow: 0 0 20px hsl(var(--tech-neon-green) / 0.3);
+  }
+  
+  .typewriter {
+    overflow: hidden;
+    border-right: 3px solid hsl(var(--tech-neon-blue));
+    white-space: nowrap;
+    animation: typewriter 3s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+  
+  @keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: hsl(var(--tech-neon-blue)); }
+  }
+  
+  .particle-bg {
+    background: 
+      radial-gradient(circle at 25% 25%, hsl(var(--tech-neon-blue) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, hsl(var(--tech-neon-purple) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, hsl(var(--tech-neon-green) / 0.05) 0%, transparent 50%);
   }
 }
